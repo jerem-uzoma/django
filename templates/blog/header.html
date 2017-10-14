@@ -1,0 +1,94 @@
+<header class="myheader">
+    <div class="top">
+
+        <div class="top-left">
+            <div class="logo">
+                <a href="/"><img src="/static/images/h.gif" /></a>
+            </div>
+            {#
+            <div class="logo">
+                <a href="#"><img src="/static/images/logo.png" /></a>
+            </div>#}
+
+
+            <div class="web-xiaoxi">
+                <i class="el-speaker"></i>
+                <ul class="mulitline">
+                    <li>Final Optimization ungoing</li>
+                    <li>When finished, the template will be released</li>
+                    <li>Perfect adaptive phone</li>
+                </ul>
+            </div>
+
+            <div class="mobile-nav"><i class="el-lines"></i><i class="el-remove"></i></div>
+        </div>
+
+        <nav class="mynav">
+            <ul class="orange-text">
+                <li class=""><a href="{% url " blog:index " %}">Home</a></li>
+                <li><a href="{% url " blog:about " %}">On</a></li>
+                <li><a href="{% url " blog:article " pk=0 %}">Blog</a></li>
+                <li class='drop'>
+                    <a href="JavaScript:;">classification<i class='el-chevron-down'></i></a>
+                    <div class="drop-nav orange-text ">
+                        <ul>
+                            {% for category in category_list %}
+                            <li><a href="{% url " blog:article " pk=category.pk %}">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{% url " blog:archive " %}">Archiving</a></li>
+                <li><a href="{% url " blog:link " %}">Link</a></li>
+                <li><a href="{% url " blog:message " %}">Leave a message</a></li>
+            </ul>
+        </nav>
+
+        <div class="mob-menu">
+
+            <div class="search ">
+                <form action="{% url " blog:search " %}" method="get">
+                    <div class="search-index">
+                        <input name="name" type="text" placeholder="Search here" onfocus="this.placeholder=''" onblur="this.placeholder='Please enter key words'" />
+                        <i class="el-search"><input value=" " type="submit"/></i>
+                    </div>
+                </form>
+            </div>
+
+            <ul>
+                <li><a href="{% url " blog:index " %}">Home</a></li>
+                <li><a href="{% url " blog:about " %}">About Us</a></li>
+                <li><a href="{% url " blog:article " pk=0 %}">Article</a></li>
+                <li class='mob-drop'>
+                    <a href="javascrip:;">classification</a>
+                    <ul class="mob-dropmenu">
+                        {% for category in category_list %}
+                        <li><a href="{% url " blog:article " pk=category.pk %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="{% url " blog:archive " %}">Archives</a></li>
+                <li><a href="{% url " blog:link " %}">Links</a></li>
+                <li><a href="{% url " blog:message " %}">Message</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--换肤--->
+    <script src="/static/js/skin.js"></script>
+    <div class="select-skin">
+        <div class="skin-btn">
+            <a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
+        </div>
+
+        <div class="skin-content">
+            <h1>选择风格<span class="skin-close">关闭</span></h1>
+            <div class="skin-content-list">
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingxin'); return false;" class="btn1">清新</a>
+                </div>
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('jianyue'); return false;" class="btn2">简约</a>
+                </div>
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingshuang'); return false;" class="btn3">清爽</a></div>
+            </div>
+        </div>
+    </div>
+</header>
